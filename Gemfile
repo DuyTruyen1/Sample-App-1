@@ -2,8 +2,16 @@ source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.2"
+# Use sprockets for asset pipeline
+gem "sprockets-rails"
+gem "sass-rails"
+
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
+
+# Use bootstrap
+gem "bootstrap-sass", "3.4.1"
+gem "sassc-rails"
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
