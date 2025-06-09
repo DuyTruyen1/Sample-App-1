@@ -13,8 +13,15 @@ gem "sass-rails"
 gem "bootstrap-sass", "3.4.1"
 gem "sassc-rails"
 
-# Use sqlite3 as the database for Active Record
-gem "sqlite3", ">= 2.1"
+# Use sqlite3 as the database for Active Record in development
+group :development, :test do
+  gem "sqlite3", ">= 2.1"
+end
+
+# Use postgresql as the database for Active Record in production
+group :production do
+  gem "pg", ">= 1.1"
+end
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 6.0"
