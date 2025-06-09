@@ -2,7 +2,8 @@ require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
   def setup
-    @user = User.new(name: "Example User", email: "user@example.com")
+    @user = User.new(name: "Example User", email: "user@example.com",
+                     password: "foobar", password_confirmation: "foobar")
   end
 
   test "should be valid" do
@@ -40,7 +41,7 @@ class UserTest < ActiveSupport::TestCase
 
   test "email validation should reject invalid addresses" do
     invalid_addresses = %w[user@example,com user_at_foo.org user.name@example.
-                          foo@bar_baz.com foo@bar+baz.com]
+                          foo@bar_baz.com foo@bar+baz.com foo@bar..com]
     invalid_addresses.each do |invalid_address|
       @user.email = invalid_address
       assert_not @user.valid?, "#{invalid_address.inspect} should be invalid"
@@ -58,5 +59,48 @@ class UserTest < ActiveSupport::TestCase
     @user.email = mixed_case_email
     @user.save
     assert_equal mixed_case_email.downcase, @user.reload.email
+  end
+
+  test "password should be present (nonblank)" do
+    @user.password = @user.password_confirmation = " " * 6
+    assert_not @user.valid?
+  end
+
+  test "password should have a minimum length" do
+    @user.password = @user.password_confirmation = "a" * 5
+    assert_not @user.valid?
+  end
+
+  test "password confirmation should match password" do
+    @user.password_confirmation = "different"
+    assert_not @user.valid?
+  end
+
+  test "password should not be too long" do
+    @user.password = @user.password_confirmation = "a" * 71
+    assert_not @user.valid?
+  end
+
+  test "email validation should reject addresses with multiple dots" do
+    invalid_addresses = %w[user@foo..com user@.foo.com user@foo.com.]
+    invalid_addresses.each do |invalid_address|
+      @user.email = invalid_address
+      assert_not @user.valid?, "#{invalid_address.inspect} should be invalid"
+    end
+  end
+
+  test "name should not contain special characters" do
+    @user.name = "User@Name"
+    assert_not @user.valid?
+    @user.name = "User#123"
+    assert_not @user.valid?
+  end
+
+  test "should allow valid names" do
+    valid_names = [ "John Doe", "Mary Jane", "O'Connor", "Jean-Pierre" ]
+    valid_names.each do |valid_name|
+      @user.name = valid_name
+      assert @user.valid?, "#{valid_name.inspect} should be valid"
+    end
   end
 end
