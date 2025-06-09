@@ -221,11 +221,6 @@ GEM
       prettyprint
     prettyprint (0.2.0)
     prism (1.4.0)
-    propshaft (1.1.0)
-      actionpack (>= 7.0.0)
-      activesupport (>= 7.0.0)
-      rack
-      railties (>= 7.0.0)
     pry (0.15.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -413,7 +408,6 @@ DEPENDENCIES
   kamal
   minitest-reporters
   pg
-  propshaft
   puma (>= 5.0)
   rails (~> 8.0.2)
   rubocop-rails-omakase

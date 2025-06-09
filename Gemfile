@@ -6,9 +6,6 @@ gem "rails", "~> 8.0.2"
 gem "sprockets-rails"
 gem "sass-rails"
 
-# The modern asset pipeline for Rails [https://github.com/rails/propshaft]
-gem "propshaft"
-
 # Use bootstrap
 gem "bootstrap-sass", "3.4.1"
 gem "sassc-rails"
