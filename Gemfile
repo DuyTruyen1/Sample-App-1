@@ -15,7 +15,7 @@ gem "sassc-rails"
 
 # Use sqlite3 as the database for Active Record in development
 group :development, :test do
-  gem "sqlite3", ">= 2.1"
+gem "sqlite3", ">= 2.1"
 end
 
 # Use postgresql as the database for Active Record in production
