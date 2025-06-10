@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to the Sample App!"
       redirect_to @user
     else
-      render "new", status: :unprocessable_entity
+      render "new", status: :unprocessable_entity # Trả về HTTP status 422 khi dữ liệu không hợp lệ,
     end
   end
 

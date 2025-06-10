@@ -1,3 +1,4 @@
+# Cấu hình môi trường development: reload code, hiện lỗi chi tiết, không cache, dùng local storage, hỗ trợ debug tốt
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
