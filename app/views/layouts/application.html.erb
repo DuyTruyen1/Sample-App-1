@@ -2,18 +2,19 @@
 <html>
   <head>
     <title><%= full_title(yield(:title)) %></title>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
-    <%= javascript_importmap_tags %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
+    <%= render "layouts/shim" %>
   </head>
   <body>
     <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class='container'>
-        <%= link_to 'sample app', '/', id: 'logo' %>
+      <div class="container">
+        <%= link_to "sample app", "/", id: "logo" %>
         <nav>
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Home", "/" %></li>
@@ -23,8 +24,10 @@
         </nav>
       </div>
     </header>
-    <div class='container'>
+    <div class="container">
       <%= yield %>
+      <%= render "layouts/footer" %>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script>
   </body>
 </html>
