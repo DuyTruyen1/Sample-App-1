@@ -9,20 +9,20 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
-    <%= render 'layouts/shim' %>
+    <%= render "layouts/shim" %>
   </head>
   <body>
     <header class="navbar navbar-fixed-top navbar-inverse">
-      <%= render 'layouts/header' %>
+      <%= render "layouts/header" %>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", '/' %></li>
-        <li><%= link_to "Help", '/help' %></li>
-        <li><%= link_to "About", '/about' %></li>
+        <li><%= link_to "Home", "/" %></li>
+        <li><%= link_to "Help", "/help" %></li>
+        <li><%= link_to "About", "/about" %></li>
       </ul>
     </header>
     <div class="container">
       <%= yield %>
-      <%= render 'layouts/footer' %>
+      <%= render "layouts/footer" %>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script>
   </body>
