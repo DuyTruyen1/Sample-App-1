@@ -1,0 +1,160 @@
+@import "bootstrap";
+
+$gray-color: #777;
+$dark-bg: #333;
+$white-color: #fff;
+$gray-hover-bg: #555;
+$footer-border-color: #eaeaea;
+$footer-link-hover-color: #222;
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: $dark-bg;
+  border: none;
+  border-radius: 0;
+  min-height: auto;
+  padding: 8px 0;
+  z-index: 1000;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  float: none;
+}
+
+.navbar-nav li {
+  margin-left: 20px;
+  float: none;
+  display: inline-block;
+}
+
+.navbar-nav li a {
+  color: $white-color;
+  text-decoration: none;
+  padding: 8px 15px;
+  display: inline-block;
+}
+
+.navbar-nav li a:hover {
+  background-color: $gray-hover-bg;
+  color: $white-color;
+  text-decoration: none;
+}
+
+#logo {
+  float: none;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: $white-color;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 5px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#logo:hover {
+  color: $white-color;
+  text-decoration: none;
+}
+
+body {
+  padding-top: 120px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $gray-color;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+img {
+  display: none;
+}
+
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid $footer-border-color;
+  color: $gray-color;
+}
+
+footer a {
+  color: $gray-hover-bg;
+}
+
+footer a:hover {
+  color: $footer-link-hover-color;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 15px;
+}
