@@ -27,7 +27,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.2.2'
+          ruby-version: '3.2.8'
           bundler-cache: true
 
       - name: Install dependencies
@@ -35,7 +35,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y postgresql-client libpq-dev
           bundle install
-      
+
       - name: Setup test database
         env:
           RAILS_ENV: test
@@ -50,11 +50,11 @@ jobs:
           DATABASE_URL: postgres://postgres:postgres@localhost:5432/sample_app_1_test
         run: |
           bundle exec rails test
-      
+
       - name: Run security checks
         run: |
           bundle exec brakeman -q -w2
-      
+
       - name: Run linting
         run: |
           bundle exec rubocop
