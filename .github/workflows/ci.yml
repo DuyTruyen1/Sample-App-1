@@ -41,9 +41,9 @@ jobs:
           RAILS_ENV: test
           DATABASE_URL: postgres://postgres:postgres@localhost:5432/sample_app_1_test
         run: |
-          bundle exec rails db:drop DISABLE_DATABASE_ENVIRONMENT_CHECK=1 || true
-          bundle exec rails db:create
-          bundle exec rails db:schema:load
+            echo "Setting up test DB..."
+            bundle exec rails db:drop DISABLE_DATABASE_ENVIRONMENT_CHECK=1 || true
+            bundle exec rails db:setup
 
 
       - name: Run tests
@@ -51,12 +51,8 @@ jobs:
           RAILS_ENV: test
           DATABASE_URL: postgres://postgres:postgres@localhost:5432/sample_app_1_test
         run: |
-            echo "Resetting test DB"
-            bundle exec rails db:drop DISABLE_DATABASE_ENVIRONMENT_CHECK=1 || true
-            bundle exec rails db:create
-            bundle exec rails db:migrate
-            echo "Running tests"
-            bundle exec rails test
+             echo "Running tests"
+             bundle exec rails test
 
       - name: Run security checks
         run: |
