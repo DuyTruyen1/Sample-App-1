@@ -35,7 +35,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y postgresql-client libpq-dev
           bundle install
-      
+
       - name: Setup test database
         env:
           RAILS_ENV: test
@@ -49,12 +49,14 @@ jobs:
           RAILS_ENV: test
           DATABASE_URL: postgres://postgres:postgres@localhost:5432/sample_app_1_test
         run: |
+          echo "Running tests in env: $RAILS_ENV"
+          bundle exec rails db:migrate
           bundle exec rails test
-      
+
       - name: Run security checks
         run: |
           bundle exec brakeman -q -w2
-      
+
       - name: Run linting
         run: |
           bundle exec rubocop
