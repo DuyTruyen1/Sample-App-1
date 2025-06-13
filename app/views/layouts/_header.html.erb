@@ -17,12 +17,13 @@
               <li class="divider"></li>
               <li>
                 <%= link_to "Log out", logout_path,
-                          data: { turbo_method: :delete } %>
+                            data: { turbo_method: :delete } %>
               </li>
             </ul>
           </li>
         <% else %>
           <li><%= link_to "Log in", login_path %></li>
+          <li><%= link_to "Sign up", signup_path %></li>
         <% end %>
       </ul>
     </nav>
