@@ -1,9 +1,16 @@
 source "https://rubygems.org"
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.2"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
+
+# For styling and JavaScript functionality
+gem "sass-rails", ">= 6"
+gem "jquery-rails", "4.4.0"
+gem "turbolinks", "5.2.1"
+gem "bootstrap-sass", "3.4.1"
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
@@ -66,10 +73,12 @@ group :development do
 end
 
 group :test do
-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem "capybara"
-  gem "selenium-webdriver"
-  gem "minitest-reporters"
-  gem "guard"                # For automated testing
-  gem "guard-minitest"       # For automated testing
+  gem "capybara",                 "3.38.0"
+  gem "selenium-webdriver",       "4.8.3"
+  gem "webdrivers",              "5.2.0"
+  gem "rails-controller-testing", "1.0.5"
+  gem "minitest",                "5.18.0"
+  gem "minitest-reporters",      "1.6.0"
+  gem "guard",                   "2.18.0"
+  gem "guard-minitest",          "2.4.6"
 end
