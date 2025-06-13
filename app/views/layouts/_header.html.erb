@@ -1,31 +1,41 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
   <div class="container">
-    <%= link_to "sample app", root_path, id: "logo" %>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Help", help_path %></li>
+    <%= link_to "SAMPLE APP", root_path, class: "navbar-brand fw-bold text-uppercase" %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><%= link_to "Home", root_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Help", help_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Contact", contact_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "About", about_path, class: "nav-link" %></li>
+      </ul>
+
+      <ul class="navbar-nav">
         <% if logged_in? %>
-          <li><%= link_to "Users", '#' %></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Account <b class="caret"></b>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+               data-bs-toggle="dropdown" aria-expanded="false">
+              Account
             </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "Profile", current_user %></li>
-              <li><%= link_to "Settings", '#' %></li>
-              <li class="divider"></li>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <li><%= link_to "Profile", current_user, class: "dropdown-item" %></li>
+              <li><%= link_to "Settings", '#', class: "dropdown-item" %></li>
+              <li><hr class="dropdown-divider"></li>
               <li>
                 <%= link_to "Log out", logout_path,
-                            data: { turbo_method: :delete } %>
+                            data: { turbo_method: :delete },
+                            class: "dropdown-item" %>
               </li>
             </ul>
           </li>
         <% else %>
-          <li><%= link_to "Log in", login_path %></li>
-          <li><%= link_to "Sign up", signup_path %></li>
+          <li class="nav-item"><%= link_to "Log in", login_path, class: "nav-link" %></li>
         <% end %>
       </ul>
-    </nav>
+    </div>
   </div>
 </header>
