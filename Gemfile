@@ -8,7 +8,7 @@ gem "propshaft"
 
 # For styling and JavaScript functionality
 gem "sass-rails", ">= 6"
-gem "jquery-rails", "4.4.0"
+gem "jquery-rails", "4.6.0"
 gem "turbolinks", "5.2.1"
 gem "bootstrap-sass", "3.4.1"
 
