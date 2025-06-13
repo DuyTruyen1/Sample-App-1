@@ -36,14 +36,16 @@ jobs:
           sudo apt-get install -y postgresql-client libpq-dev
           bundle install
 
+
       - name: Setup test database
         env:
           RAILS_ENV: test
           DATABASE_URL: postgres://postgres:postgres@localhost:5432/sample_app_1_test
         run: |
-            echo "Setting up test DB..."
+            echo "Resetting test DB..."
             bundle exec rails db:drop DISABLE_DATABASE_ENVIRONMENT_CHECK=1 || true
-            bundle exec rails db:setup
+            bundle exec rails db:create
+            bundle exec rails db:schema:load
 
 
       - name: Run tests
