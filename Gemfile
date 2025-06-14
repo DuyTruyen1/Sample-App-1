@@ -4,6 +4,8 @@ source "https://rubygems.org"
 gem "rails", "~> 8.0.2"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
+gem "bcrypt", "~> 3.1.18"
+
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
@@ -70,6 +72,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "minitest-reporters"
+  gem "rails-controller-testing"
   gem "guard"                # For automated testing
   gem "guard-minitest"       # For automated testing
 end
