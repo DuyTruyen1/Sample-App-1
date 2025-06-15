@@ -1,13 +1,8 @@
-@import "bootstrap-sprockets";
 @import "bootstrap";
-
 /*
  *= require_tree .
  *= require_self
  */
-
-/* Mixins, variables, etc. */
-$gray-medium-light: #eaeaea;
 $gray-color: #777;
 $dark-bg: #333;
 $white-color: #fff;
@@ -15,63 +10,6 @@ $gray-hover-bg: #555;
 $footer-border-color: #eaeaea;
 $footer-link-hover-color: #222;
 
-/* Universal */
-body {
-  padding-top: 120px;
-}
-
-section {
-  overflow: auto;
-}
-
-textarea {
-  resize: vertical;
-}
-
-.center {
-  text-align: center;
-}
-
-.center h1 {
-  margin-bottom: 10px;
-}
-
-/* Typography */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  line-height: 1;
-}
-
-h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: $gray-color;
-}
-
-p {
-  font-size: 1.1em;
-  line-height: 1.7em;
-}
-
-img {
-  display: none;
-}
-
-/* Navbar */
 .navbar {
   position: fixed;
   top: 0;
@@ -123,7 +61,6 @@ img {
   text-decoration: none;
 }
 
-/* Logo */
 #logo {
   float: none;
   margin-right: 10px;
@@ -141,7 +78,61 @@ img {
   text-decoration: none;
 }
 
-/* Footer */
+body {
+  padding-top: 120px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $gray-color;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+img {
+  display: none;
+}
+
+
 footer {
   margin-top: 45px;
   padding-top: 5px;
