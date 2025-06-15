@@ -1,5 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+/*
+ *= require_tree .
+ *= require_self
+ */
+
 $gray-color: #777;
 $dark-bg: #333;
 $white-color: #fff;
@@ -50,12 +55,12 @@ $footer-link-hover-color: #222;
   text-decoration: none;
   padding: 8px 15px;
   display: inline-block;
-}
 
-.navbar-nav li a:hover {
-  background-color: $gray-hover-bg;
-  color: $white-color;
-  text-decoration: none;
+  &:hover {
+    background-color: $gray-hover-bg;
+    color: $white-color;
+    text-decoration: none;
+  }
 }
 
 #logo {
@@ -68,11 +73,11 @@ $footer-link-hover-color: #222;
   padding-top: 5px;
   font-weight: bold;
   text-decoration: none;
-}
 
-#logo:hover {
-  color: $white-color;
-  text-decoration: none;
+  &:hover {
+    color: $white-color;
+    text-decoration: none;
+  }
 }
 
 body {
@@ -89,10 +94,10 @@ textarea {
 
 .center {
   text-align: center;
-}
 
-.center h1 {
-  margin-bottom: 10px;
+  h1 {
+    margin-bottom: 10px;
+  }
 }
 
 h1,
@@ -129,32 +134,31 @@ img {
   display: none;
 }
 
-
 footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid $footer-border-color;
   color: $gray-color;
-}
 
-footer a {
-  color: $gray-hover-bg;
-}
+  a {
+    color: $gray-hover-bg;
 
-footer a:hover {
-  color: $footer-link-hover-color;
-}
+    &:hover {
+      color: $footer-link-hover-color;
+    }
+  }
 
-footer small {
-  float: left;
-}
+  small {
+    float: left;
+  }
 
-footer ul {
-  float: right;
-  list-style: none;
-}
+  ul {
+    float: right;
+    list-style: none;
 
-footer ul li {
-  float: left;
-  margin-left: 15px;
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
 }

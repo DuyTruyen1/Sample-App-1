@@ -1,9 +1,18 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
 /*
  *= require_self
  *= require_tree .
  */
+
+// Biến màu sắc (từ main)
+$gray-color: #777;
+$dark-bg: #333;
+$white-color: #fff;
+$gray-hover-bg: #555;
+$footer-border-color: #eaeaea;
+$footer-link-hover-color: #222;
 
 * {
   margin: 0;
@@ -17,17 +26,18 @@ a {
 }
 
 #logo {
-  float: left;
+  float: none;
   margin-right: 10px;
   font-size: 1.7em;
-  color: #fff;
+  color: $white-color;
   text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 9px;
+  padding-top: 5px;
   font-weight: bold;
+  text-decoration: none;
 
   &:hover {
-    color: #fff;
+    color: $white-color;
     text-decoration: none;
   }
 }
@@ -35,28 +45,90 @@ a {
 .navbar {
   position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   width: 100%;
-  background-color: #222;
-  color: white;
+  background-color: $dark-bg;
+  border: none;
+  border-radius: 0;
+  min-height: auto;
+  padding: 8px 0;
   z-index: 1000;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+.navbar .container,
 .navbar__container {
   padding: 16px 32px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+.navbar-nav,
 .navbar__nav {
   display: flex;
-  gap: 32px;
+  flex-direction: row;
   list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 32px;
+}
+
+.navbar-nav li,
+.navbar__nav li {
+  margin-left: 20px;
+  display: inline-block;
+}
+
+.navbar-nav li a {
+  color: $white-color;
+  text-decoration: none;
+  padding: 8px 15px;
+  display: inline-block;
+
+  &:hover {
+    background-color: $gray-hover-bg;
+    color: $white-color;
+  }
+}
+
+body {
+  padding-top: 120px;
 }
 
 .main-content {
   padding: 0 32px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  &--column {
+    flex-direction: column;
+  }
+
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+.content-container {
+  padding: 50px 0;
+  background-color: rgb(210, 230, 213);
 }
 
 h1,
@@ -66,6 +138,36 @@ h4,
 h5,
 h6 {
   line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $gray-color;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+img {
+  display: none;
+}
+
+.content__link {
+  color: rgb(58, 143, 223);
+  font-weight: bold;
 }
 
 .btn {
@@ -81,17 +183,17 @@ h6 {
 
 footer {
   margin-top: 45px;
-  padding: 5px 32px 0;
-  border-top: 1px solid #eaeaea;
-  color: #777;
+  padding-top: 5px;
+  border-top: 1px solid $footer-border-color;
+  color: $gray-color;
   display: flex;
   justify-content: space-between;
 
   a {
-    color: #444;
+    color: $gray-hover-bg;
 
     &:hover {
-      color: #333;
+      color: $footer-link-hover-color;
     }
   }
 
@@ -107,43 +209,6 @@ footer {
 
     li {
       margin-right: 16px;
-      float: left;
     }
   }
-}
-
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.center--column {
-  flex-direction: column;
-}
-
-.content-container {
-  padding: 50px 0;
-  background-color: rgb(210, 230, 213);
-}
-
-h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: #777;
-}
-
-.content__link {
-  color: rgb(58, 143, 223);
-  font-weight: bold;
 }
