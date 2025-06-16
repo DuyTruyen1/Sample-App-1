@@ -1,15 +1,27 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/*
+ *= require_tree .
+ *= require_self
+ */
+
 /* mixins, variables, etc. */
 $gray-medium-light: #eaeaea;
 $gray-light: #777;
 $gray: #555;
 $gray-darker: #222;
 
+$gray-color: #777;
+$dark-bg: #333;
+$white-color: #fff;
+$gray-hover-bg: #555;
+$footer-border-color: #eaeaea;
+$footer-link-hover-color: #222;
+
 /* universal */
 body {
-  padding-top: 60px;
+  padding-top: 120px;
 }
 
 section {
@@ -27,7 +39,6 @@ textarea {
 .center h1 {
   margin-bottom: 10px;
 }
-
 
 /* typography */
 h1, h2, h3, h4, h5, h6 {
@@ -47,7 +58,7 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: $gray-light;
+  color: $gray-color;
 }
 
 p {
@@ -56,17 +67,70 @@ p {
 }
 
 /* header */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: $dark-bg;
+  border: none;
+  border-radius: 0;
+  min-height: auto;
+  padding: 8px 0;
+  z-index: 1000;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  float: none;
+}
+
+.navbar-nav li {
+  margin-left: 20px;
+  float: none;
+  display: inline-block;
+}
+
+.navbar-nav li a {
+  color: $white-color;
+  text-decoration: none;
+  padding: 8px 15px;
+  display: inline-block;
+}
+
+.navbar-nav li a:hover {
+  background-color: $gray-hover-bg;
+  color: $white-color;
+  text-decoration: none;
+}
+
 #logo {
-  float: left;
+  float: none;
   margin-right: 10px;
   font-size: 1.7em;
-  color: white;
+  color: $white-color;
   text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 9px;
+  padding-top: 5px;
   font-weight: bold;
+  text-decoration: none;
+
   &:hover {
-    color: white;
+    color: $white-color;
     text-decoration: none;
   }
 }
@@ -75,21 +139,26 @@ p {
 footer {
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid $gray-medium-light;
-  color: $gray-light;
+  border-top: 1px solid $footer-border-color;
+  color: $gray-color;
+
   a {
-    color: $gray;
+    color: $gray-hover-bg;
+
     &:hover {
-      color: $gray-darker;
+      color: $footer-link-hover-color;
       text-decoration: none;
     }
   }
+
   small {
     float: left;
   }
+
   ul {
     float: right;
     list-style: none;
+
     li {
       float: left;
       margin-left: 15px;
@@ -101,6 +170,7 @@ footer {
 .checkbox {
   margin-top: -10px;
   margin-bottom: 10px;
+
   span {
     margin-left: 20px;
     font-weight: normal;
@@ -110,4 +180,9 @@ footer {
 #session_remember_me {
   width: auto;
   margin-left: 0;
+}
+
+/* override */
+img {
+  display: none;
 }
