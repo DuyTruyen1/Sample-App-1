@@ -15,7 +15,7 @@ $gray-hover-bg: #555;
 $footer-border-color: #eaeaea;
 $footer-link-hover-color: #222;
 
-/* Universal */
+/* universal */
 body {
   padding-top: 120px;
 }
@@ -36,13 +36,8 @@ textarea {
   margin-bottom: 10px;
 }
 
-/* Typography */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+/* typography */
+h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
 
@@ -67,11 +62,7 @@ p {
   line-height: 1.7em;
 }
 
-img {
-  display: none;
-}
-
-/* Navbar */
+/* header */
 .navbar {
   position: fixed;
   top: 0;
@@ -134,39 +125,44 @@ img {
   padding-top: 5px;
   font-weight: bold;
   text-decoration: none;
+
+  &:hover {
+    color: $white-color;
+    text-decoration: none;
+  }
 }
 
-#logo:hover {
-  color: $white-color;
-  text-decoration: none;
-}
-
-/* Footer */
+/* footer */
 footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid $footer-border-color;
   color: $gray-color;
+
+  a {
+    color: $gray-hover-bg;
+
+    &:hover {
+      color: $footer-link-hover-color;
+    }
+  }
+
+  small {
+    float: left;
+  }
+
+  ul {
+    float: right;
+    list-style: none;
+
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
 }
 
-footer a {
-  color: $gray-hover-bg;
-}
-
-footer a:hover {
-  color: $footer-link-hover-color;
-}
-
-footer small {
-  float: left;
-}
-
-footer ul {
-  float: right;
-  list-style: none;
-}
-
-footer ul li {
-  float: left;
-  margin-left: 15px;
+/* override */
+img {
+  display: none;
 }
