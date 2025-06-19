@@ -1,0 +1,12 @@
+<li class="d-flex align-items-center">
+  <%= gravatar_for user, size: 5 %>
+  <%= link_to user.name, user %>
+  <% if current_user.admin? && !current_user?(user) %>
+    <div class="d-inline-block ms-1">
+      | <%= button_to "delete", user_path(user), method: :delete,
+                                                data: { confirm: "You sure?" },
+                                                form: { class: "d-inline-block m-0" },
+                                                class: "btn btn-link p-0 border-0 text-decoration-underline" %>
+    </div>
+  <% end %>
+</li>

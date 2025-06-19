@@ -30,10 +30,9 @@ textarea {
 
 .center {
   text-align: center;
-}
-
-.center h1 {
-  margin-bottom: 10px;
+  h1 {
+    margin-bottom: 10px;
+  }
 }
 
 /* typography */
@@ -160,6 +159,29 @@ footer {
       margin-left: 15px;
     }
   }
+}
+
+/* Users index */
+.users {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-medium-light;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* Gravatar */
+.gravatar {
+  margin-right: 10px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
 }
 
 /* override */

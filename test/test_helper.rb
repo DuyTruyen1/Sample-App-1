@@ -1,4 +1,5 @@
 ENV["RAILS_ENV"] ||= "test"
+require "bootstrap-will_paginate"
 require_relative "../config/environment"
 require "rails/test_help"
 
