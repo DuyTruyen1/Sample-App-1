@@ -15,6 +15,8 @@ gem "bootstrap-sass", "3.4.1"
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem "sqlite3", ">= 2.1"
+  # Add letter_opener for handling emails in development
+  gem "letter_opener"
 end
 
 group :production do
