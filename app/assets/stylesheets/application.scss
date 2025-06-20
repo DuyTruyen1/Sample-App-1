@@ -1,8 +1,12 @@
+@import "bootstrap-sprockets";
 @import "bootstrap";
+
 /*
- *= require_tree .
  *= require_self
+ *= require_tree .
  */
+
+// Biến màu sắc (từ main)
 $gray-color: #777;
 $dark-bg: #333;
 $white-color: #fff;
@@ -10,54 +14,14 @@ $gray-hover-bg: #555;
 $footer-border-color: #eaeaea;
 $footer-link-hover-color: #222;
 
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  background-color: $dark-bg;
-  border: none;
-  border-radius: 0;
-  min-height: auto;
-  padding: 8px 0;
-  z-index: 1000;
-}
-
-.navbar .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
-}
-
-.navbar-nav {
-  display: flex;
-  flex-direction: row;
-  list-style: none;
+* {
   margin: 0;
   padding: 0;
-  float: none;
+  box-sizing: border-box;
 }
 
-.navbar-nav li {
-  margin-left: 20px;
-  float: none;
-  display: inline-block;
-}
-
-.navbar-nav li a {
-  color: $white-color;
-  text-decoration: none;
-  padding: 8px 15px;
-  display: inline-block;
-}
-
-.navbar-nav li a:hover {
-  background-color: $gray-hover-bg;
-  color: $white-color;
+a {
+  color: inherit;
   text-decoration: none;
 }
 
@@ -71,15 +35,72 @@ $footer-link-hover-color: #222;
   padding-top: 5px;
   font-weight: bold;
   text-decoration: none;
+
+  &:hover {
+    color: $white-color;
+    text-decoration: none;
+  }
 }
 
-#logo:hover {
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: $dark-bg;
+  border: none;
+  border-radius: 0;
+  min-height: auto;
+  padding: 8px 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar .container,
+.navbar__container {
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.navbar-nav,
+.navbar__nav {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 32px;
+}
+
+.navbar-nav li,
+.navbar__nav li {
+  margin-left: 20px;
+  display: inline-block;
+}
+
+.navbar-nav li a {
   color: $white-color;
   text-decoration: none;
+  padding: 8px 15px;
+  display: inline-block;
+
+  &:hover {
+    background-color: $gray-hover-bg;
+    color: $white-color;
+  }
 }
 
 body {
   padding-top: 120px;
+}
+
+.main-content {
+  padding: 0 32px;
 }
 
 section {
@@ -91,11 +112,23 @@ textarea {
 }
 
 .center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+
+  &--column {
+    flex-direction: column;
+  }
+
+  h1 {
+    margin-bottom: 10px;
+  }
 }
 
-.center h1 {
-  margin-bottom: 10px;
+.content-container {
+  padding: 50px 0;
+  background-color: rgb(210, 230, 213);
 }
 
 h1,
@@ -132,32 +165,50 @@ img {
   display: none;
 }
 
+.content__link {
+  color: rgb(58, 143, 223);
+  font-weight: bold;
+}
+
+.btn {
+  padding: 16px 24px;
+  border-radius: 4px;
+  background-color: #007bff;
+  font-weight: bold;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
 footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid $footer-border-color;
   color: $gray-color;
-}
+  display: flex;
+  justify-content: space-between;
 
-footer a {
-  color: $gray-hover-bg;
-}
+  a {
+    color: $gray-hover-bg;
 
-footer a:hover {
-  color: $footer-link-hover-color;
-}
+    &:hover {
+      color: $footer-link-hover-color;
+    }
+  }
 
-footer small {
-  float: left;
-}
+  small {
+    float: left;
+  }
 
-footer ul {
-  float: right;
-  list-style: none;
-}
+  ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 
-footer ul li {
-  float: left;
-  margin-left: 15px;
+    li {
+      margin-right: 16px;
+    }
+  }
 }
