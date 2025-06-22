@@ -7,18 +7,23 @@ class User < ApplicationRecord
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 
-  validates :name, presence: true, length: { maximum: 50 }
+  validates :name, presence: true, length: { maximum: 50 }, format: { with: /\A[a-zA-Z\s]+\z/, message: "only allows letters and spaces" }
   validates :email,
             presence: true,
             length: { maximum: 255 },
                   format: { with: VALID_EMAIL_REGEX },
-            uniqueness: true
+            uniqueness: { case_sensitive: false }
   validates :password,
             presence: true,
-            length: { minimum: 6 },
+            length: { minimum: 6, maximum: 72 },
             allow_nil: true
+  validate :email_must_not_have_consecutive_dots
 
   has_secure_password
+
+  has_many :microposts, dependent: :destroy
+
+
 
   # Returns the hash digest of the given string.
   def self.digest(string)
@@ -76,15 +81,27 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
 
+  # Defines a proto-feed.
+  # See "Following users" for the full implementation.
+  def feed
+    Micropost.where("user_id = ?", id)
+  end
+
   private
 
   def downcase_email
     self.email = email.downcase
-    end
+  end
 
   # Creates and assigns the activation token and digest.
   def create_activation_digest
     self.activation_token = User.new_token
     self.activation_digest = User.digest(activation_token)
+  end
+
+  def email_must_not_have_consecutive_dots
+    if email.present? && email.match?(/\.{2,}/)
+      errors.add(:email, "must not have consecutive dots")
+    end
   end
 end
