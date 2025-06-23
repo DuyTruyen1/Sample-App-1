@@ -2,18 +2,21 @@
 
 <% if logged_in? %>
   <div class="row">
-    <div class="col-md-8">
-      <h3>What's up?</h3>
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="stats">
+        <%= render 'shared/stats' %>
+      </section>
       <section class="micropost_form">
         <%= render 'shared/micropost_form' %>
       </section>
+    </aside>
+    <div class="col-md-8">
+      <h3>Micropost Feed</h3>
       <%= render 'shared/feed' %>
     </div>
-    <aside class="col-md-4">
-      <section class="user-info">
-        <%= render 'shared/user_info' %>
-      </section>
-    </aside>
   </div>
 <% else %>
   <div class="center jumbotron">

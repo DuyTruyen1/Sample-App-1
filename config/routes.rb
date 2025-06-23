@@ -12,14 +12,13 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
 
   # Resources
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :account_activations, only: [ :edit ]
   resources :password_resets,     only: [ :new, :create, :edit, :update ]
   resources :microposts,          only: [ :create, :destroy ]
-
-  # Active Storage (Rails tự thêm nếu bạn đã chạy active_storage:install)
-  # Nếu bạn cần route custom, có thể thêm direct như sau (không cần thiết trong đa số trường hợp):
-  # direct :rails_storage do |model, options|
-  #   route_for(:rails_service_blob, model, options)
-  # end
+  resources :relationships,       only: [ :create, :destroy ]
 end
